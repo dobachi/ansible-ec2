@@ -1,0 +1,6 @@
+---
+- hosts: "{{ server | default('production') }}"
+  roles:
+    - example
+
+# vim: et sw=2 ts=2:

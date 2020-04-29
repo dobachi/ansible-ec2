@@ -1,0 +1,13 @@
+ec2_region: "ap-northeast-1"
+ec2_master_name: "master01"
+ec2_slave_names:
+  - "slave01"
+  - "slave02"
+  - "slave03"
+
+ec2_create_key_name: "xxxxxxxxx"
+ec2_create_itype: "t3.xlarge"
+ec2_create_image: "ami-xxxxxxxxxxx"
+ec2_create_sec_group: "xxxxxxxx"
+ec2_create_vpc_subnet: "subnet-xxxxxxxx"
+ec2_create_pubip: "yes"

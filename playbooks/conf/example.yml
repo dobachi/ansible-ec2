@@ -1,0 +1,6 @@
+---
+- hosts: "{{ server | default('production') }}"
+  roles:
+    - { role: example, message: "This is a message writen via playbook variable" }
+
+# vim: et sw=2 ts=2:

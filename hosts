@@ -1,0 +1,11 @@
+; Top group of the environment
+; You can use group names like prodction, test, development, and so on.
+[production:children]
+group1
+local
+
+[local]
+localhost
+
+[group1]
+localhost

@@ -1,0 +1,25 @@
+---
+# tasks file for roles/ec2_start
+
+- block:
+
+  - name: start_master
+    ec2:
+      wait: yes
+      instance_tags:
+        Name: "{{ec2_master_name}}"
+      region: "{{ec2_region}}"
+      state: "running"
+
+  - name: start_slaves
+    ec2:
+      instance_tags:
+        Name: "{{item}}"
+      region: "{{ec2_region}}"
+      state: "running"
+    with_items: "{{ec2_slave_names}}"
+
+  tags:
+    - ec2_create
+  vars:
+    ansible_python_interpreter: "{{ansible_env.VIRTUAL_ENV}}/bin/python"

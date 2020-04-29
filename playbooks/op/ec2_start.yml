@@ -1,0 +1,7 @@
+---
+- hosts: "{{ server | default('production') }}"
+  roles:
+    - ec2_start
+
+# vim: et sw=2 ts=2:
+
