@@ -1,0 +1,26 @@
+---
+# tasks file for roles/ambari_agent
+
+- block:
+
+  - name: install_ambari_agent
+    yum:
+      name: ambari-agent
+      state: installed
+      update_cache: yes
+
+  - name: configure_ambari_agent
+    template:
+      src: ambari-agent.ini.j2
+      dest: /etc/ambari-agent/conf/ambari-agent.ini
+
+  - name: start_ambari_agent
+    service:
+      name: ambari-agent
+      state: started
+      enabled: yes
+
+  tags:
+    - ambari_agent
+
+# vim: et ts=2 sw=2:

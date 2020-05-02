@@ -9,4 +9,12 @@
     - pyenv
     - bigtop_repo
 
+- hosts: "{{ server | default('master01') }}"
+  roles:
+    - ambari_server
+
+- hosts: "{{ server | default('cluster') }}"
+  roles:
+    - ambari_agent
+
 # vim: et sw=2 ts=2:

@@ -1,0 +1,28 @@
+---
+# tasks file for roles/ambari_server
+- block:
+
+  - name: install_ambari_server
+    yum:
+      name: ambari-server
+      state: installed
+      update_cache: yes
+
+  - name: install_mpack
+    shell: /bin/bash -c 'echo yes | /usr/sbin/ambari-server install-mpack --purge --verbose --mpack=/var/lib/ambari-server/resources/odpi-ambari-mpack-1.0.0.0-SNAPSHOT.tar.gz'
+    when: ambari_server_setup
+
+  - name: setup_ambari_server
+    shell: ambari-server setup -j $(readlink -f /usr/bin/java | sed 's@jre/bin/java@@') -s
+    when: ambari_server_setup
+
+  - name: start_ambari_server
+    service:
+      name: ambari-server
+      state: started
+      enabled: yes
+
+  tags:
+    - ambari_server
+
+# vim: et ts=2 sw=2:

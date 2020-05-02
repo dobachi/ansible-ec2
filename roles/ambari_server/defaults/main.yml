@@ -1,0 +1,3 @@
+---
+# defaults file for roles/ambari_server
+ambari_server_setup: False
