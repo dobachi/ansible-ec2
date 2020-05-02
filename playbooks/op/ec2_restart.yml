@@ -1,0 +1,2 @@
+- include: ec2_stop.yml
+- include: ec2_start.yml

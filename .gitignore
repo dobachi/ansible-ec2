@@ -1,4 +1,4 @@
-group_vars/production/99_private
+group_vars/all/99_private
 venv
 *swp
 *~

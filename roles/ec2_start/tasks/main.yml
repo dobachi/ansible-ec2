@@ -1,4 +1,4 @@
-:--
+---
 # tasks file for roles/ec2_start
 
 - block:
@@ -7,58 +7,25 @@
     ec2:
       wait: yes
       instance_tags:
-        Name: "{{ec2_master_name}}"
+        Name: "{{item.name}}"
       region: "{{ec2_region}}"
       state: "running"
+    with_items: "{{ec2_masters}}"
+    register: "masters_info"
 
   - name: start_slaves
     ec2:
       instance_tags:
-        Name: "{{item}}"
+        Name: "{{item.name}}"
       region: "{{ec2_region}}"
       state: "running"
-    with_items: "{{ec2_slave_names}}"
-
-  - name: print_master_debugs
-    debug:
-      var: "{{ masters_info.results }}"
-    when: ec2_debug
-
-  - name: print_slave_debugs
-    debug:
-      msg: "{{ slaves_info.results }}"
-    when: ec2_debug
-
-  - name: make_out_dir
-    file:
-      path: "/tmp/ec2_{{ansible_user_id}}_{{ansible_date_time.epoch}}"
-      state: directory
-  
-  - name: make_inventory
-    local_action:
-      module: template
-      src: "ansible_hosts.j2"
-      dest: "/tmp/ec2_{{ansible_user_id}}_{{ansible_date_time.epoch}}/ansible_hosts"
-  
-  - name: make_local_hosts_for_os
-    local_action:
-      module: template
-      src: "hosts.j2"
-      dest: "/tmp/ec2_{{ ansible_user_id }}_{{ ansible_date_time.epoch }}/hosts"
-  
-  - name: make_public_hosts_for_os
-    local_action:
-      module: template
-      src: "publichosts.j2"
-      dest: "/tmp/ec2_{{ ansible_user_id }}_{{ ansible_date_time.epoch }}/publichosts"
-  
-  - name: make_ip_list
-    local_action:
-      module: template
-      src: "ips.j2"
-      dest: "/tmp/ec2_{{ ansible_user_id }}_{{ ansible_date_time.epoch }}/ips"
+    with_items: "{{ec2_slaves}}"
+    register: "slaves_info"
 
   tags:
     - ec2_start
+
   vars:
     ansible_python_interpreter: "{{ansible_env.VIRTUAL_ENV}}/bin/python"
+
+# vim: et ts=2 sw=2:
