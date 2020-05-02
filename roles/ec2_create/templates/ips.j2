@@ -1,0 +1,14 @@
+# masters
+{% for i in masters_info.results %}
+{% for j in i.tagged_instances %}
+{{ j.private_ip }} {{ j.public_ip }}
+{% endfor %}
+{% endfor %}
+
+# slaves
+{% for i in slaves_info.results %}
+{% for j in i.tagged_instances %}
+{{ j.private_ip }} {{ j.public_ip }}
+{% endfor %}
+{% endfor %}
+

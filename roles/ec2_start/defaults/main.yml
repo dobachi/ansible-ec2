@@ -1,2 +1,19 @@
 ---
 # defaults file for roles/ec2_start
+
+ec2_region: "ap-northeast-1"
+ec2_debug: False
+ec2_masters:
+  - name: "master01"
+    ip: "10.0.0.11"
+    pubip: "yes"
+ec2_slaves:
+  - name: "slave01"
+    ip: "10.0.0.21"
+    pubip: "yes"
+  - name: "slave02"
+    ip: "10.0.0.22"
+    pubip: "yes"
+  - name: "slave03"
+    ip: "10.0.0.23"
+    pubip: "yes"

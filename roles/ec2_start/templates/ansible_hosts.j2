@@ -1,0 +1,17 @@
+[local]
+localhost
+
+[cluster:children]
+masters
+slaves
+
+[masters]
+{% for i in masters_info.results %}
+{{ i.item.name }}
+{% endfor %}
+
+[slaves]
+{% for i in slaves_info.results %}
+{{ i.item.name }}
+{% endfor %}
+
