@@ -72,4 +72,4 @@
       dest: /etc/profile.d/vim.sh
 
   tags:
-    - vim
+    - vim8

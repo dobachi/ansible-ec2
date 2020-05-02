@@ -9,4 +9,4 @@
       state: present
 
   tags:
-    - vim
+    - vim8
