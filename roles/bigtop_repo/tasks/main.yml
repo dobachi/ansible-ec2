@@ -1,0 +1,17 @@
+---
+# tasks file for roles/bigtop_repo
+- block:
+
+  - name: add_bigtop_repository
+    yum_repository:
+      name: bigtop
+      description: bigtop
+      baseurl: "{{bigtop_repo_url}}"
+      gpgkey: "{{bigtop_repo_gpgkey}}"
+      gpgcheck: "yes"
+
+  tags:
+    - bigtop_repo
+
+
+# vim: et ts=2 sw=2:

@@ -1,0 +1,4 @@
+---
+# defaults file for roles/bigtop_repo
+bigtop_repo_url: "http://repos.bigtop.apache.org/releases/1.4.0/centos/7/$basearch"
+bigtop_repo_gpgkey: "https://dist.apache.org/repos/dist/release/bigtop/KEYS"
