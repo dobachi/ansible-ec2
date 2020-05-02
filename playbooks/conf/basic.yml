@@ -1,6 +1,7 @@
 ---
 - hosts: "{{ server | default('cluster') }}"
   roles:
+    - os
     - bash
     - git
     - jdk

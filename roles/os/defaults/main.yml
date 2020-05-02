@@ -1,0 +1,4 @@
+---
+# defaults file for roles/os
+
+os_firewalld_remove: True

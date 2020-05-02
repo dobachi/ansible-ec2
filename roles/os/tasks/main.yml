@@ -1,0 +1,18 @@
+---
+# tasks file for roles/os
+- block:
+
+  - name: disable_selinux
+    selinux:
+      state: disabled
+
+  - name: remove_firewalld 
+    yum:
+      name: firewalld
+      state: removed
+    when: os_firewalld_remove
+
+  tags:
+    - os
+
+# vim: et ts=2 sw=2:
