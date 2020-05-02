@@ -1,0 +1,11 @@
+---
+- hosts: "{{ server | default('cluster') }}"
+  roles:
+    - bash
+    - git
+    - jdk
+    - maven
+    - pyenv
+    - vim
+
+# vim: et sw=2 ts=2:
