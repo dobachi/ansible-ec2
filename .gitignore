@@ -2,3 +2,5 @@ group_vars/production/99_private
 venv
 *swp
 *~
+hosts
+ansible.cfg
