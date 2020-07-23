@@ -46,9 +46,15 @@ The sub-directries are separated intto `conf` and `op` .
 
 ## How to execute
 
+### Preparements
+
+Before executing Ansible playbooks, you need to configure AWS credentials.
+In this procedure, we assume that the credentials are configured using the profile, "ec2".
+
+### examples
+
 ```
-$ ansible-playbook playbook/conf/example.yml -c local -b -K
-$ ansible-playbook playbook/op/example.yml -c local -b -K
+$ AWS_PROFILE=ec2 ansible-playbook playbook/conf/ec2_create.yml -c local
 ```
 
 ## License

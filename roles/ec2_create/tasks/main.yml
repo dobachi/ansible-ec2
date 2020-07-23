@@ -9,7 +9,7 @@
       instance_type: "{{ec2_create_itype}}"
       image: "{{ec2_create_image}}"
       wait: yes
-      group: "{{ec2_create_sec_group}}"
+      group_id: "{{ec2_create_sec_group_ids}}"
       vpc_subnet_id: "{{ec2_create_vpc_subnet}}"
       assign_public_ip: "{{item.pubip}}"
       region: "{{ec2_region}}"
@@ -28,7 +28,7 @@
       instance_type: "{{ec2_create_itype}}"
       image: "{{ec2_create_image}}"
       wait: yes
-      group: "{{ec2_create_sec_group}}"
+      group_id: "{{ec2_create_sec_group_ids}}"
       vpc_subnet_id: "{{ec2_create_vpc_subnet}}"
       assign_public_ip: "{{item.pubip}}"
       region: "{{ec2_region}}"
