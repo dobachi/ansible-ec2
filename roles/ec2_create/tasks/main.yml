@@ -80,6 +80,15 @@
       src: "ips.j2"
       dest: "/tmp/ec2_{{ ansible_user_id }}_{{ ansible_date_time.epoch }}/ips"
 
+  - name: display multiple file contents
+    debug:
+      var: item
+    with_file:
+      - "/tmp/ec2_{{ ansible_user_id }}_{{ ansible_date_time.epoch }}/ansible_hosts"
+      - "/tmp/ec2_{{ ansible_user_id }}_{{ ansible_date_time.epoch }}/hosts"
+      - "/tmp/ec2_{{ ansible_user_id }}_{{ ansible_date_time.epoch }}/publichosts"
+      - "/tmp/ec2_{{ ansible_user_id }}_{{ ansible_date_time.epoch }}/ips"
+
   tags:
     - ec2_create
   vars:

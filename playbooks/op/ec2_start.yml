@@ -2,6 +2,7 @@
 - hosts: "{{ server | default('localhost') }}"
   roles:
     - ec2_start
+    - ec2_create
 
 # vim: et sw=2 ts=2:
 
